@@ -10,8 +10,10 @@ terraform {
 module "aws_vpc" {
   source = "git@github.com:FoghornConsulting/m-vpc.git"
   nat_instances = 1
-  az_width = 3
+  az_width = 1
   cidr_block = var.cidr_block
+  subnet_map = var.subnet_map
+  tag_map = var.tag_map
 }
 
 module sgs {
