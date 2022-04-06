@@ -1,5 +1,10 @@
 # Install kubernetes on ubuntu
 
+*Note: This project is current to these versions:*
+* Ubuntu: `18.04.3`
+* Docker: `20.10.7`
+* kubeadm: `1.23`
+
 ## Docs
 
 Short version
@@ -20,12 +25,15 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 * Launch master and worker nodes in same AZ
 * Add security group to allow master / worker traffic
 
-## CGroups driver mismatch issue in kubeadm
+## CGroup driver mismatch issue in kubeadm
 
-Issue Detail (Long conversation)
+### Issue Detail (Long)
 
 https://github.com/kubernetes/kubernetes/issues/43805#issuecomment-907734385
 
+### TL;DR
+
+The kubeadm and docker CGroup drivers need to match. With the versions used at the date of this doc, kubeadm uses `systemd` and docker uses `cgroupfs`. I resolved by switching kubeadm to `cgroupfs`. More info [here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/#configuring-the-kubelet-cgroup-driver).
 
 ### Problematic kubadm init command:
 
