@@ -5,3 +5,8 @@ variable "cidr_block" {}
 variable "tag_map" {}
 variable "ec2_key_pair_name" {}
 variable "subnet_map" {}
+variable "instance_count" {}
+variable "instance_type" {}
+variable "az_width" {}
+variable "nat_instances" {}
+variable "load_balancer" {}

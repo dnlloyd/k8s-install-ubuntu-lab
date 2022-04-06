@@ -1,6 +1,8 @@
 variable "ec2_key_pair_name" {}
 variable "subnet_id" {}
 variable "security_group_ids" {}
+variable "instance_count" {}
+variable "instance_type" {}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -22,9 +24,9 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "public" {
-  count = 2
+  count = var.instance_count
   ami = data.aws_ami.ubuntu.id
-  instance_type = "t3.small"
+  instance_type = var.instance_type
   key_name = var.ec2_key_pair_name
   subnet_id = var.subnet_id
   vpc_security_group_ids = var.security_group_ids
