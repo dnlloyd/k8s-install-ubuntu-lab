@@ -5,4 +5,4 @@ cidr_block = "10.0.0.0/16"
 tag_map = {
   Environment = "K8sLab"
 }
-# vpc_id = "vpc-0e1397b4e2dc9fadf"
+ec2_key_pair_name = "aws-personal"
