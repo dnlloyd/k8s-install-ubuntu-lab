@@ -25,9 +25,13 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "public" {
   count = var.instance_count
+
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   key_name = var.ec2_key_pair_name
   subnet_id = var.subnet_id
   vpc_security_group_ids = var.security_group_ids
+}
+output "instance_ids" {
+  value = aws_instance.public.*.id
 }

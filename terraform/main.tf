@@ -37,4 +37,6 @@ module load_balancer {
   source = "./modules/lb/"
   subnets = module.aws_vpc.subnets["public"]
   security_group_ids = [module.sgs.ec2_common_security_group.id]
+  vpc_id = module.aws_vpc.vpc.id
+  instance_ids = module.instances.instance_ids
 }
