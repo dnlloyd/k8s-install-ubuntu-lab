@@ -1,5 +1,5 @@
 variable "ec2_key_pair_name" {}
-variable "subnet_id" {}
+variable "subnet_ids" {}
 variable "security_group_ids" {}
 variable "instance_count_cp" {}
 variable "instance_type_cp" {}
@@ -31,7 +31,7 @@ resource "aws_instance" "control_plane" {
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type_cp
   key_name = var.ec2_key_pair_name
-  subnet_id = var.subnet_id
+  subnet_id = var.subnet_ids[count.index]
   vpc_security_group_ids = var.security_group_ids
 }
 
@@ -41,7 +41,7 @@ resource "aws_instance" "worker" {
   ami = data.aws_ami.ubuntu.id
   instance_type = var.instance_type_worker
   key_name = var.ec2_key_pair_name
-  subnet_id = var.subnet_id
+  subnet_id = var.subnet_ids[count.index]
   vpc_security_group_ids = var.security_group_ids
 }
 

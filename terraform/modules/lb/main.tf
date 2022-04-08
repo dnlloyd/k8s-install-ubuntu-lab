@@ -1,4 +1,4 @@
-variable "subnets" {}
+variable "subnet_ids" {}
 variable "security_group_ids" {}
 variable "vpc_id" {}
 variable "instance_ids_cp" {}
@@ -8,8 +8,8 @@ resource "aws_lb" "api_server" {
   name = "api-server-lb"
   internal = true
   load_balancer_type = "network"
-  security_groups = var.security_group_ids
-  subnets = [for subnet in var.subnets : subnet.id]
+  # security_groups = var.security_group_ids
+  subnets = var.subnet_ids
 }
 
 resource "aws_lb_target_group" "api_server" {

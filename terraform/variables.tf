@@ -13,3 +13,6 @@ variable "az_width" {}
 variable "nat_instances" {}
 variable "load_balancer" {}
 variable "private_domain_name" {}
+# variable "create_vpc" {}
+variable "vpc_id" {}
+variable "subnets" {}
