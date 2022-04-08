@@ -45,11 +45,6 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 
 ### AWS Specific Attributes
 
-* VPC, instance, and security groups declared in `terraform` directory
-* Use t3.small for kubernetes system reqs
-* Launch master and worker nodes in same AZ
-* Add security group to allow master / worker traffic
-
 * Infrastructure declared in `terraform` directory
   * VPC with public subnets*
   * Single master server in single AZ
