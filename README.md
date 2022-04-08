@@ -15,10 +15,13 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-avail
 
 ### AWS Specific Attributes
 
-* VPC, instance, and security groups declared in `terraform` directory
-* Use t3.small for kubernetes system reqs
-* Launch three control plane nodes in separate AZs
-* Add security group to allow control plane / worker traffic
+* Infrastructure declared in `terraform` directory
+  * VPC with public subnets*
+  * Three control plane nodes in separate AZs
+  * Security group to allow SSH and control plane/worker connectivity
+  * Network load balancer for API server
+
+\* VPC/subnet creation optional
 
 Terraform plan
 
@@ -46,6 +49,13 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-clu
 * Use t3.small for kubernetes system reqs
 * Launch master and worker nodes in same AZ
 * Add security group to allow master / worker traffic
+
+* Infrastructure declared in `terraform` directory
+  * VPC with public subnets*
+  * Single master server in single AZ
+  * Security group to allow SSH and master/worker connectivity
+
+\* VPC/subnet creation optional
 
 Terraform plan
 
