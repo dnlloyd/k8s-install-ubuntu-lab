@@ -16,7 +16,9 @@ subnet_map = {
   isolated = "0"
 }
 nat_instances = 1
-instance_count = 2
-instance_type = "t3.small"
+instance_count_cp = 1
+instance_type_cp = "t3.small"
+instance_count_worker = 1
+instance_type_worker = "t3.micro"
 az_width = 1
 load_balancer = 0

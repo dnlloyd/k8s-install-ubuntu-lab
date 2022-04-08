@@ -16,7 +16,10 @@ subnet_map = {
   isolated = 0
 }
 nat_instances = 3
-instance_count = 4
-instance_type = "t3.small"
+instance_count_cp = 3
+instance_type_cp = "t3.small"
+instance_count_worker = 1
+instance_type_worker = "t3.small"
 az_width = 3
 load_balancer = 1
+private_domain_name = "k8sha.net"
