@@ -50,22 +50,10 @@ resource "aws_route53_zone" "k8s_private" {
   }
 }
 
-resource "aws_route53_record" "api_server_endpoint_c" {
+resource "aws_route53_record" "api_server_endpoint" {
   zone_id = aws_route53_zone.k8s_private.zone_id
-  name = "k8s-api-c.${var.private_domain_name}"
+  name = "k8s-api.${var.private_domain_name}"
   type = "CNAME"
   ttl = "300"
   records = [aws_lb.api_server.dns_name]
-}
-
-resource "aws_route53_record" "api_server_endpoint_a" {
-  zone_id = aws_route53_zone.k8s_private.zone_id
-  name = "k8s-api-a.${var.private_domain_name}"
-  type = "A"
-
-  alias {
-    name = aws_lb.api_server.dns_name
-    zone_id = aws_lb.api_server.zone_id
-    evaluate_target_health = true
-  }
 }

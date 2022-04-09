@@ -9,7 +9,6 @@ instance_type_worker = "t3.micro"
 load_balancer = 1
 private_domain_name = "k8sha.net"
 
-# vpc_id = ""
 vpc_id = "vpc-065b33a8baa73e2a3"
 subnets = {
   public = [
@@ -19,7 +18,7 @@ subnets = {
   ]
 }
 
-# VPC
+# VPC - If vpc_id = ""
 az_width = 3
 cidr_block = "10.0.0.0/16"
 nat_instances = 0

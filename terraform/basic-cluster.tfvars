@@ -8,7 +8,6 @@ instance_count_worker = 1
 instance_type_worker = "t3.micro"
 load_balancer = 0
 
-# vpc_id = ""
 vpc_id = "vpc-065b33a8baa73e2a3"
 subnets = {
   public = [
@@ -16,7 +15,7 @@ subnets = {
   ]
 }
 
-# VPC
+# VPC - If vpc_id = ""
 az_width = 1
 cidr_block = "10.0.0.0/16"
 nat_instances = 0
